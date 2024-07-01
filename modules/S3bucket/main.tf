@@ -10,7 +10,7 @@ terraform {
     region = "eu-west-2"
   }
 }
-resource "aws_s3_bucket" "s3Bucket" {
+resource "aws_s3_bucket" "USPS_Dev" {
   bucket = "[USPS-Dev]"
   acl    = "public-read"
 
