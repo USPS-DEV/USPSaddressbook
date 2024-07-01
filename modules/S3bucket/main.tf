@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "s3Bucket" {
   policy = <<EOF
 {
   "Id": "MakePublic",
-  "Version": "2012-10-17",
+  "Version": "2024-07-01",
   "Statement": [
     {
       "Action": [
