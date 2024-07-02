@@ -10,11 +10,12 @@ variable "region" {
 ###############################################
 # Jenkin Server Variables
 ###############################################
-variable "ami" {
-  type        = string
-  description = "AM ID"
-  default     = data.aws_ami.ubuntu.id
-}
+# variable "ami" {
+#   type        = string
+#   description = "AM ID"
+#   default     = data.aws_ami.ubuntu.id
+
+# }
 
 
 variable "instance_type" {

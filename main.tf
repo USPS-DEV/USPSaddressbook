@@ -5,7 +5,7 @@ provider "aws" {
 # Jenkins Server Module
 ##############################################
 module "jenkins" {
-  source                      = "./modules/jenkins"
+  source = "./modules/jenkins"
   # ami                         = var.ami
   instance_type               = var.instance_type
   instance_tags               = var.instance_tags
@@ -17,8 +17,8 @@ module "jenkins" {
 # Terraform Module
 ##############################################
 module "terraform" {
-  source                      = "./modules/terraform"
-  instance_type               = var.instance_type
-  # ami                         = var.ami
+  source        = "./modules/terraform"
+  instance_type = var.instance_type
+  # ami                         = data.aws_ami
   associate_public_ip_address = var.associate_public_ip_address
 }
