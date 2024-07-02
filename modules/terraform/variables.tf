@@ -1,6 +1,6 @@
 # variable "ami" {
 #   type = string
-#   description = "UBUNTU EC2 AMI"
+#   description = "UBUNTU AMI"
 # }
 
 variable "key_name" {
