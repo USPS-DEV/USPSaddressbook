@@ -3,6 +3,11 @@
 #   description = "UBUNTU EC2 AMI"
 # }
 
+variable "key_name" {
+  type = string
+  description = "terraform_key_name"
+}
+
 variable "instance_type" {
   type = string
   description = "UBUNTU INSTANCE TYPE"

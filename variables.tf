@@ -30,6 +30,12 @@ variable "instance_tags" {
   default     = "Jenkins_server"
 }
 
+variable "key_name" {
+  type = string
+  description = "usps_severs_key_name"
+  default = "jenkins_key"
+}
+
 variable "associate_public_ip_address" {
   type        = bool
   description = "associate ip address value"

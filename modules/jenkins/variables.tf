@@ -8,6 +8,11 @@ variable "instance_type" {
   description = "EC2 instance type"
 }
 
+variable "key_name" {
+  type = string
+  description = "jenkins_key_name"
+}
+
 variable "instance_tags" {
   type        = string
   description = "EC2 instance tags"
