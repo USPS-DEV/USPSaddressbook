@@ -1,7 +1,7 @@
-variable "ami" {
-  type        = string
-  description = "AMI ID"
-}
+# variable "ami" {
+#   type        = string
+#   description = "AMI ID"
+# }
 
 variable "instance_type" {
   type        = string

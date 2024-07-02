@@ -13,7 +13,7 @@ variable "region" {
 variable "ami" {
   type        = string
   description = "AM ID"
-  default     = "value"
+  default     = data.aws_ami.ubuntu.id
 }
 
 
