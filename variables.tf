@@ -31,13 +31,30 @@ variable "instance_tags" {
 }
 
 variable "key_name" {
-  type = string
+  type        = string
   description = "usps_severs_key_name"
-  default = "jenkins_key"
+  default     = "jenkins_key"
 }
 
 variable "associate_public_ip_address" {
   type        = bool
   description = "associate ip address value"
   default     = true
+}
+
+
+#########################
+#s3_bucket and dynamodb_table
+#########################
+
+variable "s3_bucket" {
+  description = "The name of the S3 bucket for storing Terraform state"
+  type        = string
+  default     = "terraform-state-bucket-usps-team-a"
+}
+
+variable "dynamodb_table" {
+  description = "The name of the DynamoDB table for state locking"
+  type        = string
+  default     = "terraform-lock-table"
 }

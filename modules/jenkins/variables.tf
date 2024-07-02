@@ -9,7 +9,7 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  type = string
+  type        = string
   description = "jenkins_key_name"
 }
 

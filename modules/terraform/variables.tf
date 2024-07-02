@@ -4,16 +4,16 @@
 # }
 
 variable "key_name" {
-  type = string
+  type        = string
   description = "terraform_key_name"
 }
 
 variable "instance_type" {
-  type = string
+  type        = string
   description = "UBUNTU INSTANCE TYPE"
 }
 
 variable "associate_public_ip_address" {
-  type = bool
+  type        = bool
   description = "ASSOCIATED PUBLIC IP"
 }

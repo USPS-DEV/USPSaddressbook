@@ -1,32 +1,41 @@
-# #Prover Block
-# provider "aws" {
-#   version = "~> 3.0"
-#   region  = "eu-west-2"
-# }
-# terraform {
-#   backend "s3" {
-#     bucket = "USPS_Dev"
-#     key    = "Usps_key"
-#     region = "eu-west-2"
-#   }
-# }
-# resource "aws_s3_bucket" "USPS_Dev" {
-#   bucket = "[USPS-Dev]"
-#   acl    = "public-read"
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = var.bucket
 
-#   policy = <<EOF
-# {
-#   "Id": "MakePublic",
-#   "Version": "2024-07-01",
-#   "Statement": [
-#     {
-#       "Action": [
-#         "s3:GetObject"
-#       ],
-#       "Effect": "Allow",
-#       "Resource": "arn:aws:s3:::[USPS-Dev]/*",
-#       "Principal": "*"
-#     }
-#   ]
-# }
+  versioning {
+    enabled = true
+  }
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+
+  lifecycle_rule {
+    id      = "log"
+    enabled = true
+
+    transition {
+      days          = 30
+      storage_class = "GLACIER"
+    }
+
+    expiration {
+      days = 365
+    }
+  }
+}
+
+resource "aws_dynamodb_table" "terraform_locks" {
+  name         = var.table
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
+
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+}
 
