@@ -35,3 +35,24 @@ module "s3" {
   bucket = var.s3_bucket
   table  = var.dynamodb_table
 }
+
+
+##############################################
+# vpc module
+##############################################
+module "vpc" {
+  source = "./modules/vpc"
+  region = var.region
+}
+
+
+##############################################
+# eks cluster
+##############################################
+module "usps_cluster" {
+  source                   = "./modules/eks-cluster"
+  rolearn                  = var.rolearn
+  vpc_id                   = module.vpc.vpc_id
+  subnet_ids               = module.vpc.private_subnets
+  control_plane_subnet_ids = module.vpc.private_subnets
+}

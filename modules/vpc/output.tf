@@ -22,3 +22,4 @@ output "private_subnets_cidr_blocks" {
   description = "List of cidr_blocks of private subnets"
   value       = module.vpc.private_subnets_cidr_blocks
 }
+
