@@ -61,13 +61,57 @@ module "eks" {
   aws_auth_roles = [
     {
       rolearn  = var.rolearn
-      username = "fusi"
-      groups   = ["system:masters"]
+      username = "sammyojay"
+      groups   = ["system:managers"]
     },
   ]
 
   tags = {
     env       = "dev"
     terraform = "true"
+  }
+}
+
+#creating namespaces
+resource "kubernetes_namespace" "dev" {
+  metadata {
+    annotations = {
+      name = "dev"
+    }
+
+    labels = {
+      app = "webapp"
+    }
+
+    name = "dev"
+  }
+}
+
+#creating namespaces
+resource "kubernetes_namespace" "uat" {
+  metadata {
+    annotations = {
+      name = "uat"
+    }
+
+    labels = {
+      app = "webapp"
+    }
+
+    name = "uat"
+  }
+}
+
+resource "kubernetes_namespace" "production" {
+  metadata {
+    annotations = {
+      name = "production"
+    }
+
+    labels = {
+      app = "webapp"
+    }
+
+    name = "production"
   }
 }
