@@ -21,6 +21,7 @@ variable "private_subnets" {
 variable "rolearn" {
   type        = string
   description = "rolearn id value"
+  default = "arn:aws:iam::339712828145:role/eks_full_access"
 }
 
 
