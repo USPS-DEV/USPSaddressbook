@@ -21,7 +21,6 @@ variable "private_subnets" {
 variable "rolearn" {
   type        = string
   description = "rolearn id value"
-
 }
 
 

@@ -17,6 +17,12 @@ variable "region" {
 
 # }
 
+variable "rolearn" {
+  type = string
+  description = "IAM rolearn"
+  default = "arn:aws:iam::339712828145:role/eks_full_access"
+}
+
 
 variable "instance_type" {
   type        = string

@@ -49,10 +49,9 @@ module "vpc" {
 ##############################################
 # eks cluster
 ##############################################
-module "usps_cluster" {
+module "eks" {
   source                   = "./modules/eks-cluster"
   rolearn                  = var.rolearn
   vpc_id                   = module.vpc.vpc_id
-  subnet_ids               = module.vpc.private_subnets
-  control_plane_subnet_ids = module.vpc.private_subnets
+  private_subnets          = module.vpc.private_subnets
 }
