@@ -42,7 +42,7 @@ pipeline {
                 }
         stage ('5. Email Notification') {
             steps {
-               mail bcc: 'lawrencetech2013@gmail.com','monkamtanyi@gmail.com', body: '''Terraform deployment is completed.
+               mail bcc: 'lawrencetech2013@gmail.com,monkamtanyi@gmail.com', body: '''Terraform deployment is completed.
                Let me know if the changes look okay.
                Thanks,
                usps team 2,
