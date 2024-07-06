@@ -36,8 +36,9 @@ pipeline {
             steps { 
                 echo 'Terraform ${params.deploy_choice} phase'  
                 sh "AWS_REGION=eu-west-2 terraform ${params.deploy_choice}  -target=module.vpc -target=module.eks-cluster --auto-approve"
-                // sh("""scripts/update-kubeconfig.sh""")
-                sh "aws eks --region eu-west-2 update-kubeconfig --name usps-cluster && export KUBE_CONFIG_PATH=~/.kube/config"
+                sh "chmod +x /home/ubuntu/workspace/eks-cluster/scripts/update-kubeconfig.sh"
+                sh("""scripts/update-kubeconfig.sh""")
+                // sh "aws eks --region eu-west-2 update-kubeconfig --name usps-cluster && export KUBE_CONFIG_PATH=~/.kube/config"
                 sh "AWS_REGION=eu-west-2 terraform ${params.deploy_choice} --auto-approve"
             }
                 }
