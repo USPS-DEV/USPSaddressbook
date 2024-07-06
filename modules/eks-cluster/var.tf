@@ -13,9 +13,8 @@ variable "vpc_id" {
 }
 
 variable "private_subnets" {
-  type        = string
+  type        = list(any)
   description = "subnet id value"
-
 }
 
 variable "rolearn" {
