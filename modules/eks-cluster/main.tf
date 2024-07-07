@@ -32,7 +32,7 @@ module "eks" {
 
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
-    instance_types = ["m5.xlarge", "m5.large", "t3.medium"]
+    instance_types = ["t3.large", "t3.large", "t3.medium"]
     iam_role_additional_policies = {
       AmazonEBSCSIDriverPolicy = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
     }
@@ -41,13 +41,13 @@ module "eks" {
   eks_managed_node_groups = {
     node-group-01 = {
       min_size     = 1
-      max_size     = 10
-      desired_size = 2
+      max_size     = 2
+      desired_size = 1
     }
     node-group-02 = {
       min_size     = 1
-      max_size     = 10
-      desired_size = 2
+      max_size     = 2
+      desired_size = 1
 
       instance_types = ["t3.large"]
       capacity_type  = "SPOT"
