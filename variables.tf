@@ -17,6 +17,16 @@ variable "region" {
 
 # }
 
+variable "cluster_name" {
+  type    = string
+  default = "usps-cluster"
+}
+
+variable "env_name" {
+  type    = string
+  default = "dev"
+}
+
 variable "rolearn" {
   type = string
   description = "IAM rolearn"
