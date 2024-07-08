@@ -1,6 +1,13 @@
-################################################################################
-# Load Balancer Role
-################################################################################
+terraform {
+  required_providers {
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+    helm = {
+      source = "hashicorp/helm"
+    }
+  }
+}
 
 module "lb_role" {
   source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
@@ -16,10 +23,6 @@ module "lb_role" {
   }
 }
 
-################################################################################
-# Aws Load balancer Controller Service Account
-################################################################################
-
 resource "kubernetes_service_account" "service-account" {
   metadata {
     name      = "aws-load-balancer-controller"
@@ -34,10 +37,6 @@ resource "kubernetes_service_account" "service-account" {
     }
   }
 }
-
-################################################################################
-# Install Load Balancer Controler With Helm
-################################################################################
 
 resource "helm_release" "lb" {
   name       = "aws-load-balancer-controller"
