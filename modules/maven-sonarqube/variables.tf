@@ -17,31 +17,26 @@ variable "instance_type" {
 variable "key_name" {
   description = "The name of the key pair to use for the instance"
   type        = string
-  default = "jenkins_key"
 }
 
-# variable "security_group_id" {
-#   description = "The security group ID to attach to the instance"
-#   type        = string
-#   default = "value"
-# }
+variable "security_group_id" {
+  description = "The security group ID to attach to the instance"
+  type        = string
+}
 
-# variable "subnet_id" {
-#   description = "The subnet ID where the instance will be deployed"
-#   type        = string
-#   default = "value"
-# }
+variable "subnet_id" {
+  description = "The subnet ID where the instance will be deployed"
+  type        = string
+}
 
 variable "db_name" {
   description = "The name of the PostgreSQL database"
   type        = string
-  default = "devdb"
 }
 
 variable "db_username" {
   description = "The username for the PostgreSQL database"
   type        = string
-  default = "devdb"
 }
 
 variable "db_password" {

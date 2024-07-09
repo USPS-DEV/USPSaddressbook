@@ -28,9 +28,9 @@ variable "env_name" {
 }
 
 variable "rolearn" {
-  type = string
+  type        = string
   description = "IAM rolearn"
-  default = "arn:aws:iam::339712828145:role/eks_full_access"
+  default     = "arn:aws:iam::339712828145:role/eks_full_access"
 }
 
 

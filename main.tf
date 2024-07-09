@@ -1,33 +1,3 @@
-provider "aws" {
-  region = var.region
-  
-}
-
-
-data "aws_eks_cluster" "eks_cluster" {
-  name = module.eks.cluster_name
-}
-
-data "aws_eks_cluster_auth" "eks_cluster_auth" {
-  name = module.eks.cluster_name
-}
-
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.eks_cluster.endpoint
-  token                  = data.aws_eks_cluster_auth.eks_cluster_auth.token
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.eks_cluster.certificate_authority[0].data)
-}
-
-provider "helm" {
-  kubernetes {
-    host                   = data.aws_eks_cluster.eks_cluster.endpoint
-    token                  = data.aws_eks_cluster_auth.eks_cluster_auth.token
-    cluster_ca_certificate = base64decode(data.aws_eks_cluster.eks_cluster.certificate_authority[0].data)
-  }
-}
-
-
-
 ##############################################
 # Jenkins Server Module
 ##############################################
@@ -53,7 +23,6 @@ module "terraform" {
 }
 
 
-
 ##############################################
 # s3 bucket
 ##############################################
@@ -77,16 +46,16 @@ module "vpc" {
 # eks cluster
 ##############################################
 module "eks" {
-  source                   = "./modules/eks-cluster"
-  rolearn                  = var.rolearn
-  vpc_id                   = module.vpc.vpc_id
-  private_subnets          = module.vpc.private_subnets
+  source          = "./modules/eks-cluster"
+  rolearn         = var.rolearn
+  vpc_id          = module.vpc.vpc_id
+  private_subnets = module.vpc.private_subnets
 }
 
 module "aws_alb_controller" {
   source = "./modules/alb-controller"
 
-  region  = var.region
+  region       = var.region
   env_name     = var.env_name
   cluster_name = var.cluster_name
 
