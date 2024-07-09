@@ -1,16 +1,15 @@
-data "aws_ami" "redhat" {
+data "aws_ami" "amazon_linux" {
   most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["RHEL_HA-9.3.0_HVM-20231101-x86_64-5-Hourly2-GP2"]  # Change the filter to match the desired RedHat AMI pattern
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
 
   filter {
-    name   = "owner-id"
-    values = ["309956199498"]  # RedHat owner ID in AWS
+    name   = "state"
+    values = ["available"]
   }
-
-  owners = ["309956199498"]  # RedHat owner ID in AWS
 }
 

@@ -13,6 +13,6 @@ output "db_instance_endpoint" {
   value       = aws_db_instance.postgresql.endpoint
 }
 
-output "redhat_ami_id" {
-  value = data.aws_ami.redhat.id
+output "amazon_linux" {
+  value = data.aws_ami.amazon_linux.id
 }
