@@ -13,14 +13,14 @@
 - Create and Assign Teams
 - Assign Permissions: Assign appropriate permissions to teams rather than individuals.
 - Limit Collaborators
+--------------------------------------------------------------------------------------------------------------------------------------
+**Jenkins Server Setup**
 
-Jenkins Server Setup
-
-Task 1: Setting Up the Jenkins Server
+T**ask 1: Setting Up the Jenkins Server**
   - Create a security group for the Jenkins server with access for SSH and web UI.
   - Use Terraform to launch an EC2 instance, attach the security group, and install Jenkins.
 
-Sub-task Configuring Jenkins
+**Sub-task Configuring Jenkins**
 
   - Access Jenkins through http://<jenkins-public-ip>:8080.
 - Engineer 2:
@@ -34,34 +34,30 @@ Sub-task Configuring Jenkins
     - Git
     - sonar-scanner
 
-Terraform Node Setup (2 Engineers)
+**Terraform Node Setup**
 
-Task 3: Setting Up the Terraform Node
-- Engineer 3:
+**Task 3: Setting Up the Terraform Node**
   - Create a security group with SSH access for the Terraform node.
-- Engineer 4:
   - Use Terraform to launch an EC2 instance, attach the security group, and enable remote access.
 
 Task 4: Installing and Verifying Terraform
-- Engineer 3:
   - Use user data to install Terraform on the EC2 instance.
-- Engineer 4:
   - Verify that Terraform is installed and functioning correctly.
 
-Jenkins and Terraform Node Integration
+**Jenkins and Terraform Node Integration**
 
-Task 5: Integrating Jenkins with the Terraform Node
-- Engineer 5:
+**Task 5: Integrating Jenkins with the Terraform Node**
+
   - Add the Terraform node to Jenkins through Manage Jenkins > Manage Nodes.
   - write a groovy declarative pipeline script to run our pipeline job 
   - Configure Jenkins jobs to execute Terraform commands on the node.
 
-EKS Cluster Deployment
+**EKS Cluster Deployment**
 
-Task 6: Deploying the EKS Cluster
+**Task 6: Deploying the EKS Cluster**
 
 Subtask 6.1: Networking Setup
-- Engineer 6:
+
   - created a VPC module using the offical aws terraform module
   - modified the code to proper network security and configuration of subnets.
   - created an EKS module using the offical aws terraform module
@@ -69,8 +65,8 @@ Subtask 6.1: Networking Setup
   - created  kubernetes_service_account using the resource block
   - created helm_release using the resource block
 
-Subtask 6.2: EKS Deployment
-- Engineer 7:
+**Subtask 6.2: EKS Deployment**
+
   - created an EKS module using the offical module
   - added some cluster_addons such as
     coredns 
@@ -83,7 +79,7 @@ Subtask 6.2: EKS Deployment
   - deployed through our jenkins pipeline
   - Verify cluster accessibility, and confirm networking setup.
 
-Task 7: Configuring Role-Based Access
-- Engineer 6 and Engineer 7:
+**Task 7: Configuring Role-Based Access**
+
   - Set up role-based access control (RBAC) for the EKS cluster using Terraform.
   - Ensure team members are assigned appropriate roles for accessing EKS resources.
