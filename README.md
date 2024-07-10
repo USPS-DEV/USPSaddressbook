@@ -56,7 +56,7 @@ Task 4: Installing and Verifying Terraform
 
 **Task 6: Deploying the EKS Cluster**
 
-Subtask 6.1: Networking Setup
+**Subtask 6.1: Networking Setup**
 
   - created a VPC module using the offical aws terraform module
   - modified the code to proper network security and configuration of subnets.
