@@ -74,3 +74,15 @@ variable "dynamodb_table" {
   type        = string
   default     = "terraform-lock-table"
 }
+
+
+################################################################################
+# AWS SSO Variables
+################################################################################
+
+variable "sso_admin_group_id" {
+  description = "AWS_SSO Admin Group ID"
+  type        = string
+  sensitive   = true
+  default     = "f4a81458-90a1-70f4-ecac-3e7b26424283"
+}

@@ -62,3 +62,41 @@ module "aws_alb_controller" {
   vpc_id            = module.vpc.vpc_id
   oidc_provider_arn = module.eks.oidc_provider_arn
 }
+
+# ################################################################################
+# # VPC Endpoints for Prometheus and Grafana Module
+# ################################################################################
+module "vpcendpoints" {
+  source                    = "./modules/vpcendpoints"
+  env_name                  = var.env_name
+  region                    = var.region
+  vpc_id                    = module.vpc.vpc_id
+  private_subnets           = module.vpc.private_subnets
+  grafana_security_group_id = module.managed_grafana.security_group_id
+}
+
+
+# ################################################################################
+# # Managed Prometheus Module
+# ################################################################################
+module "prometheus" {
+  source            = "./modules/prometheus"
+  env_name          = var.env_name
+  region       = var.region
+  cluster_name      = var.cluster_name
+  oidc_provider_arn = module.eks.oidc_provider_arn
+  vpc_id            = module.vpc.vpc_id
+  private_subnets   = module.vpc.private_subnets
+}
+
+################################################################################
+# Managed Grafana Module
+################################################################################
+
+module "managed_grafana" {
+  source             = "./modules/grafana"
+  env_name           = var.env_name
+  region        = var.region
+  private_subnets    = module.vpc.private_subnets
+  sso_admin_group_id = var.sso_admin_group_id
+}
