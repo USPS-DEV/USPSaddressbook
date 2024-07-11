@@ -31,7 +31,7 @@ T**ask 1: Setting Up the Jenkins Server**
   Setup essential tools like
     - Git
     - sonar-scanner
-
+--------------------------------------------------------------------------------------------------------------------------------------
 **Terraform Node Setup**
 
 **Task 3: Setting Up the Terraform Node**
@@ -49,7 +49,7 @@ Task 4: Installing and Verifying Terraform
   - Add the Terraform node to Jenkins through Manage Jenkins > Manage Nodes.
   - write a groovy declarative pipeline script to run our pipeline job 
   - Configure Jenkins jobs to execute Terraform commands on the node.
-
+--------------------------------------------------------------------------------------------------------------------------------------
 **EKS Cluster Deployment**
 
 **Task 6: Deploying the EKS Cluster**
@@ -76,11 +76,4 @@ Task 4: Installing and Verifying Terraform
   - created 3 namespaces (gateway, directory, analytics) using the resource blocck
   - deployed through our jenkins pipeline
   - Verify cluster accessibility, and confirm networking setup.
-
-**Task 7: Configuring Role-Based Access**
-
-  - Set up role-based access control (RBAC) for the EKS cluster using Terraform.
-  - Ensure team members are assigned appropriate roles for accessing EKS resources.
-
-<iframe src="https://share.goodday.work/a27e42bf-a84f-40e4-a2f1-995b9ff8890e"></iframe>
-
+--------------------------------------------------------------------------------------------------------------------------------------
