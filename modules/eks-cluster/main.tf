@@ -113,16 +113,16 @@ resource "kubernetes_namespace" "production" {
   }
 }
 
-resource "kubernetes_namespace" "monitoring" {
-  metadata {
-    annotations = {
-      name = "monitoring"
-    }
+# resource "kubernetes_namespace" "monitoring" {
+#   metadata {
+#     annotations = {
+#       name = "monitoring"
+#     }
 
-    labels = {
-      app = "webapp"
-    }
+#     labels = {
+#       app = "webapp"
+#     }
 
-    name = "monitoring"
-  }
-}
+#     name = "monitoring"
+#   }
+# }
